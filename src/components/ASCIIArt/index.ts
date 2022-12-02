@@ -3,3 +3,4 @@ export * from "./StringLiteralColorizer";
 export * from "./Elf";
 export * from "./Tree";
 export * from "./SnowFall";
+export * from "./Beach";

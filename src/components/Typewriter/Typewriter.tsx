@@ -9,7 +9,7 @@ export interface TypewriterProps {
 export const Typewriter = ({
   children,
   charStart = 20,
-  delay = 75,
+  delay = 60,
 }: TypewriterProps) => {
   const [text, setText] = useState(children.slice(0, charStart));
 

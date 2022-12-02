@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Elf, Tree, Typewriter } from "~/components";
 import { renderXTimes } from "~/utils";
@@ -42,7 +43,13 @@ export const Day01 = () => {
   return (
     <div className="flex flex-col gap-8">
       <div className="flex flex-col gap-2">
-        <h2 className="text-center text-xl">Day 01</h2>
+        <div className="grid grid-cols-3">
+          <div className="flex flex-col gap-2"></div>
+          <h2 className="text-center text-xl">Day 01</h2>
+          <Link className="text-blue-400" to="/day-02">
+            To Day 02 {"=>"}
+          </Link>
+        </div>
         <p className="text-center">**********</p>
         <div className="flex items-center justify-center">
           <p className="min-h-[120px] max-w-lg text-left">

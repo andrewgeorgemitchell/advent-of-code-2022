@@ -2,8 +2,8 @@ import { StringLiteralColorizer } from "~/components";
 
 const AdventOfCodeStringLiteral = `
           |
-      \\  |  /
-       \\ | /
+       \\  |  /
+        \\ | /
       --- * ---
          >O<
         >o<<<

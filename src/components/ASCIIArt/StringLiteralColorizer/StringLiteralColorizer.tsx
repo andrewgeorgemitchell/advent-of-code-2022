@@ -40,9 +40,17 @@ export const StringLiteralColorizer = ({
   }, [stringLiteral, colorMap]);
 
   return (
-    <div className="flex flex-col items-center justify-center text-center">
+    <div className="flex flex-col ">
       <p>
         {charArrayByKeyGroups.map((charGroup, index) => {
+          if (charGroup === " ") {
+            return (
+              <span key={index} className="opacity-0">
+                _
+              </span>
+            );
+          }
+
           if (charGroup === "\n") {
             return <br key={index} />;
           }
