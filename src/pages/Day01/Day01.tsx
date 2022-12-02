@@ -57,7 +57,8 @@ export const Day01 = () => {
               The elves come upon a thick forest. Too thick for vehicles, so as
               they prepare to go ahead on foot, they begin taking inventory of
               what food they have with them. In particular they are interested
-              in how many calories each elf has.
+              in how many calories each elf has. But more importantly they want
+              to know who has the most food, so they know who to ask for snacks!
             </Typewriter>
           </p>
         </div>
