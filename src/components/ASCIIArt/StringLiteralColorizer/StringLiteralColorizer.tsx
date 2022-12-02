@@ -10,7 +10,6 @@ export const StringLiteralColorizer = ({
   colorMap,
 }: StringLiteralColorizerProps) => {
   const colorMapKeys = Object.keys(colorMap);
-  console.log("colorMapKeys:", colorMapKeys);
 
   const charArrayByKeyGroups = useMemo(() => {
     const charArray = stringLiteral.split("");

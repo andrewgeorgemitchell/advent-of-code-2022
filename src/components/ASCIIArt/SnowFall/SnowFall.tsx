@@ -39,14 +39,14 @@ export const SnowFall = () => {
   >(generateXSnowflakes(10));
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
+    const interval = setInterval(() => {
       setSnowflakes((snowflakes) => [
         ...snowflakes.slice(-500),
         ...generateXSnowflakes(5),
       ]);
     }, 1000);
-    return () => clearTimeout(timeout);
-  });
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="absolute bottom-0 left-0 flex h-full w-full items-end">
