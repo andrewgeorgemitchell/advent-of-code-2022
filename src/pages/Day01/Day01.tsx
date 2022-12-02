@@ -2,8 +2,6 @@ import { useState } from "react";
 import { Elf, Tree, Typewriter } from "~/components";
 import { renderXTimes } from "~/utils";
 
-const CalculateCaloriesForEachElf = () => {};
-
 type ElfInventory = {
   id: number;
   calories: number;
@@ -31,7 +29,6 @@ export const Day01 = () => {
     const elvesFoodTotalsSorted = elvesFoodTotals.sort((a, b) => {
       return a.calories - b.calories;
     });
-    console.log("elvesFoodTotalsSorted:", elvesFoodTotalsSorted);
 
     setHighestFoodElf(elvesFoodTotalsSorted[elvesFoodTotalsSorted.length - 1]);
 
