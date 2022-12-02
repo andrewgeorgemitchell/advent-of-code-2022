@@ -176,7 +176,7 @@ export const Day02 = () => {
       </div>
       <div className="flex flex-col items-center gap-2">
         <p className="text-center">
-          Lets figure out if you encrypted strategy guide is correct
+          Lets figure out if your encrypted strategy guide is correct
         </p>
         <label>Paste your puzzle input into the field below:</label>
         <input className="max-w-lg" type="text" onChange={handleInputChange} />
