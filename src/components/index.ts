@@ -1,1 +1,1 @@
-export * from "./AdventOfCodeLogo";
+export * from "./ASCIIArt";

@@ -14,9 +14,18 @@ module.exports = {
             opacity: 0.5,
           },
         },
+        snowFall: {
+          "0%": {
+            transform: "translateY(-2000%)",
+          },
+          "100%": {
+            transform: "translateY(0%)",
+          },
+        },
       },
       animation: {
         twinkle: "twinkle 3s ease-in-out infinite",
+        snowFall: "snowFall 10s linear",
       },
     },
   },

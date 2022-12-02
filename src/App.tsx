@@ -1,15 +1,39 @@
-import { AdventOfCodeLogo } from "~/components";
+import { AdventOfCodeLogo, Elf, SnowFall, Tree } from "~/components";
+import { Outlet, RouterProvider } from "@tanstack/react-router";
 import "./App.css";
+import { router } from "./App.router";
 
-function App() {
+export const App = () => {
   return (
-    <div className="h-screen w-screen bg-slate-900 text-white">
-      <nav className="flex w-screen flex-col items-center justify-center p-4">
-        <h1>Advent of Code 2022</h1>
-        <AdventOfCodeLogo />
-      </nav>
-    </div>
+    <RouterProvider router={router}>
+      <div className="h-screen w-screen overflow-x-hidden bg-slate-900 text-white">
+        <nav className="flex w-screen flex-col items-center justify-center p-4">
+          <h1 className="text-center">Advent of Code 2022</h1>
+          <div className="relative flex flex-row flex-nowrap items-end justify-center gap-2 overflow-hidden">
+            <SnowFall />
+            <Elf />
+            <Tree />
+            <Elf />
+            <Elf />
+            <Elf />
+            <Tree />
+            <Elf />
+            <Elf />
+            <AdventOfCodeLogo />
+            <Elf />
+            <Tree />
+            <Tree />
+            <Elf />
+            <Elf />
+            <Tree />
+            <Tree />
+            <Elf />
+          </div>
+        </nav>
+        <main>
+          <Outlet />
+        </main>
+      </div>
+    </RouterProvider>
   );
-}
-
-export default App;
+};
