@@ -182,7 +182,7 @@ export const Day02 = () => {
         <input className="max-w-lg" type="text" onChange={handleInputChange} />
         {predictedScore && (
           <p className="text-center">
-            Your predicted score is:{" "}
+            Your initial (but wrong) predicted score is:{" "}
             <b className="text-lime-500">{predictedScore}</b>
           </p>
         )}
