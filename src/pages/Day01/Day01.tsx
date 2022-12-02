@@ -85,6 +85,12 @@ export const Day01 = () => {
           </p>
         )}
       </div>
+      <a
+        href="https://github.com/andrewgeorgemitchell/advent-of-code-2022/blob/main/src/pages/Day01/Day01.tsx"
+        className="text-center text-blue-200"
+      >
+        See Code for this solution on Github
+      </a>
     </div>
   );
 };
