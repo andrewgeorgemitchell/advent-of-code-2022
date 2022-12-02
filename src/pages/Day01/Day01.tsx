@@ -12,10 +12,9 @@ export const Day01 = () => {
   const [highestThreeElvesByCalories, setHighestThreeElvesByCalories] =
     useState<ElfInventory[]>([]);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-
-    const elvesFoodTotals = value
+  // Day 01 Logic
+  const calculateElfCalories = (inputStr: string) => {
+    const elvesFoodTotals = inputStr
       .split("  ")
       .map<ElfInventory>((elfFood, i) => {
         return {
@@ -33,6 +32,11 @@ export const Day01 = () => {
     setHighestFoodElf(elvesFoodTotalsSorted[elvesFoodTotalsSorted.length - 1]);
 
     setHighestThreeElvesByCalories(elvesFoodTotalsSorted.slice(-3));
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    calculateElfCalories(value);
   };
 
   return (
