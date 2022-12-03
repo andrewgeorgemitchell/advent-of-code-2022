@@ -1,43 +1,37 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Elf, Tree, Typewriter } from "~/components";
-import { renderXTimes } from "~/utils";
+import { Button, Elf, TextField, Tree, Typewriter } from "~/components";
+import { renderXTimes, sanitizeFileInput } from "~/utils";
+import { calculateElfCalories } from "./day01.service";
+import { ElfInventory } from "./day01.types";
+import rawInput from "./day01.data.txt?raw";
 
-type ElfInventory = {
-  id: number;
-  calories: number;
-};
+const inputData = sanitizeFileInput(rawInput);
+console.log("inputData:", inputData);
 
 export const Day01 = () => {
+  const [value, setValue] = useState<string>("");
   const [highestFoodElf, setHighestFoodElf] = useState<ElfInventory>();
   const [highestThreeElvesByCalories, setHighestThreeElvesByCalories] =
     useState<ElfInventory[]>([]);
 
-  // Day 01 Logic
-  const calculateElfCalories = (inputStr: string) => {
-    const elvesFoodTotals = inputStr
-      .split("  ")
-      .map<ElfInventory>((elfFood, i) => {
-        return {
-          id: i + 1,
-          calories: elfFood.split(" ").reduce((acc, food) => {
-            return acc + parseInt(food);
-          }, 0),
-        };
-      });
+  const calculateHighestFoodElves = (inputStr: string) => {
+    const { sortedElfFoodTotals } = calculateElfCalories(inputStr);
 
-    const elvesFoodTotalsSorted = elvesFoodTotals.sort((a, b) => {
-      return a.calories - b.calories;
-    });
+    setHighestFoodElf(sortedElfFoodTotals.at(-1));
 
-    setHighestFoodElf(elvesFoodTotalsSorted[elvesFoodTotalsSorted.length - 1]);
-
-    setHighestThreeElvesByCalories(elvesFoodTotalsSorted.slice(-3));
+    setHighestThreeElvesByCalories(sortedElfFoodTotals.slice(-3));
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    calculateElfCalories(value);
+    setValue(value);
+    calculateHighestFoodElves(value);
+  };
+
+  const handleUseDefaultValue = () => {
+    setValue(inputData);
+    calculateHighestFoodElves(inputData);
   };
 
   return (
@@ -68,8 +62,14 @@ export const Day01 = () => {
         {renderXTimes(8, <Tree />)}
       </div>
       <div className="flex flex-col items-center gap-2">
-        <label>Paste your puzzle input into the field below:</label>
-        <input className="max-w-lg" type="text" onChange={handleInputChange} />
+        <div className="flex flex-wrap items-end justify-center gap-2">
+          <TextField
+            label="Puzzle Input"
+            value={value}
+            onChange={handleInputChange}
+          />
+          <Button onClick={handleUseDefaultValue}>Prefill Puzzle Input</Button>
+        </div>
         {highestFoodElf && (
           <p>
             Elf with the highest amount of food by calories:{" "}
