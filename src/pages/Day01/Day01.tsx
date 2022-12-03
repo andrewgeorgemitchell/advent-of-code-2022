@@ -63,16 +63,9 @@ export const Day01 = () => {
           </p>
         </div>
       </div>
-      <div className="flex flex-nowrap justify-center">
-        <div className="grid grid-cols-4 grid-rows-2">
-          {renderXTimes(3, <Elf />)}
-          <Tree />
-          {renderXTimes(3, <Elf />)}
-          <Tree />
-        </div>
-        <div className="grid grid-cols-4 grid-rows-2">
-          {renderXTimes(8, <Tree />)}
-        </div>
+      <div className="flex flex-nowrap justify-center overflow-hidden">
+        {renderXTimes(8, <Elf />)}
+        {renderXTimes(8, <Tree />)}
       </div>
       <div className="flex flex-col items-center gap-2">
         <label>Paste your puzzle input into the field below:</label>
