@@ -61,7 +61,7 @@ export const Day01 = () => {
         {renderXTimes(8, <Elf />)}
         {renderXTimes(8, <Tree />)}
       </div>
-      <div className="flex flex-col items-center gap-2">
+      <div className="flex flex-col items-center gap-4">
         <div className="flex flex-wrap items-end justify-center gap-2">
           <TextField
             label="Puzzle Input"

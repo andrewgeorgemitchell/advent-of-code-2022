@@ -1,11 +1,15 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Beach, Typewriter } from "~/components";
+import { Beach, Button, TextField, Typewriter } from "~/components";
 import {
   calculateScoresForAllRounds,
   calculateScoresForAllRoundsUsingUltimateStrategy,
   parseInputIntoMoves,
 } from "./day02.service";
+import RawData from "./day02.data.txt?raw";
+import { sanitizeFileInput } from "~/utils";
+
+const DefaultInputData = sanitizeFileInput(RawData);
 
 export const Day02 = () => {
   const [predictedScore, setPredictedScore] = useState<number>();
@@ -14,15 +18,26 @@ export const Day02 = () => {
     setPredictedScoreWhenMeetingDesiredOutcome,
   ] = useState<number>();
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
+  const [inputValue, setInputValue] = useState<string>();
 
+  const calculateScores = (value: string) => {
     const { opponentMoves, selfMoves } = parseInputIntoMoves(value);
 
     setPredictedScore(calculateScoresForAllRounds(opponentMoves, selfMoves));
     setPredictedScoreWhenMeetingDesiredOutcome(
       calculateScoresForAllRoundsUsingUltimateStrategy(opponentMoves, selfMoves)
     );
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setInputValue(value);
+    calculateScores(value);
+  };
+
+  const handleUseDefaultValue = () => {
+    setInputValue(DefaultInputData);
+    calculateScores(DefaultInputData);
   };
 
   return (
@@ -54,19 +69,24 @@ export const Day02 = () => {
       <div className="flex justify-center">
         <Beach />
       </div>
-      <div className="flex flex-col items-center gap-2">
+      <div className="flex flex-col items-center gap-4">
         <p className="text-center">
           Lets figure out if your encrypted strategy guide is correct
         </p>
-        <label>Paste your puzzle input into the field below:</label>
-        <input className="max-w-lg" type="text" onChange={handleInputChange} />
+        <div className="flex flex-wrap items-end justify-center gap-2">
+          <TextField
+            label="Puzzle Input"
+            value={inputValue}
+            onChange={handleInputChange}
+          />
+          <Button onClick={handleUseDefaultValue}>Prefill Puzzle Input</Button>
+        </div>
         {predictedScore && (
           <p className="text-center">
             Your initial (but wrong) predicted score is:{" "}
             <b className="text-lime-500">{predictedScore}</b>
           </p>
         )}
-
         {predictedScoreWhenMeetingDesiredOutcome && (
           <p className="max-w-lg text-center">
             The elf who gave you the list of all the moves told you that you
