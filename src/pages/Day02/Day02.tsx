@@ -8,8 +8,17 @@ import {
 } from "./day02.service";
 import RawData from "./day02.data.txt?raw";
 import { sanitizeFileInput } from "~/utils";
+import { DayLayout } from "../layout";
 
 const DefaultInputData = sanitizeFileInput(RawData);
+
+const Day02IntroText = `
+The elves have trekked through the forest and have come upon a
+              large beach where they decide to set up camp. To decide who gets
+              to have their tent closest to the snacks, they decide to play a
+              rock, paper, scissors tournament. The elves are very competitive,
+              however you have a secret list of all the moves the other elves
+              will play, which should give you an advantage.`;
 
 export const Day02 = () => {
   const [predictedScore, setPredictedScore] = useState<number>();
@@ -41,46 +50,33 @@ export const Day02 = () => {
   };
 
   return (
-    <div className="flex flex-col gap-8">
-      <div className="flex flex-col gap-2">
-        <div className="grid grid-cols-3">
-          <Link className="text-right text-blue-400" to="/">
-            {"<="} To Day 01
-          </Link>
-          <h2 className="text-center text-xl">Day 02</h2>
-          <Link className="text-blue-400" to="/day-03" disabled>
-            To Day 03 {"=>"} (Coming Soon)
-          </Link>
-        </div>
-        <p className="text-center">**********</p>
-        <div className="flex items-center justify-center">
-          <p className="min-h-[120px] max-w-lg text-left">
-            <Typewriter>
-              The elves have trekked through the forest and have come upon a
-              large beach where they decide to set up camp. To decide who gets
-              to have their tent closest to the snacks, they decide to play a
-              rock, paper, scissors tournament. The elves are very competitive,
-              however you have a secret list of all the moves the other elves
-              will play, which should give you an advantage.
-            </Typewriter>
-          </p>
-        </div>
-      </div>
-      <div className="flex justify-center">
+    <DayLayout.Root>
+      <DayLayout.Header
+        route="/day-02"
+        headerText="Day 02"
+        storyIntroText="The elves have trekked through the forest and have come upon a
+        large beach where they decide to set up camp. To decide who gets
+        to have their tent closest to the snacks, they decide to play a
+        rock, paper, scissors tournament. The elves are very competitive,
+        however you have a secret list of all the moves the other elves
+        will play, which should give you an advantage."
+      />
+
+      <DayLayout.ASCIIArt>
         <Beach />
-      </div>
-      <div className="flex flex-col items-center gap-4">
+      </DayLayout.ASCIIArt>
+      <DayLayout.Content>
         <p className="text-center">
           Lets figure out if your encrypted strategy guide is correct
         </p>
-        <div className="flex flex-wrap items-end justify-center gap-2">
+        <DayLayout.Input>
           <TextField
             label="Puzzle Input"
             value={inputValue}
             onChange={handleInputChange}
           />
           <Button onClick={handleUseDefaultValue}>Prefill Puzzle Input</Button>
-        </div>
+        </DayLayout.Input>
         {predictedScore && (
           <p className="text-center">
             Your initial (but wrong) predicted score is:{" "}
@@ -97,13 +93,8 @@ export const Day02 = () => {
             </b>
           </p>
         )}
-      </div>
-      <a
-        href="https://github.com/andrewgeorgemitchell/advent-of-code-2022/blob/main/src/pages/Day02/Day02.tsx"
-        className="text-center text-blue-200"
-      >
-        See Code for this solution on Github
-      </a>
-    </div>
+      </DayLayout.Content>
+      <DayLayout.GithubLink href="https://github.com/andrewgeorgemitchell/advent-of-code-2022/blob/main/src/pages/Day02/Day02.tsx" />
+    </DayLayout.Root>
   );
 };
