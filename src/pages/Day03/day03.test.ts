@@ -18,7 +18,7 @@ const Part1Output = 157;
 
 const Part2Output = 70;
 
-describe("Day02", () => {
+describe("Day03", () => {
   test("Part 1: Sum of rucksack", () => {
     expect(calculateSumPackPriority(TestInput)).toBe(Part1Output);
   });
