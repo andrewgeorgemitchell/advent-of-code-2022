@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Elf, TextField } from "~/components";
+import { Beach, Button, Elf, TextField } from "~/components";
 import { DayLayout } from "~/pages";
 import { renderXTimes, sanitizeFileInput } from "~/utils";
 import rawInput from "./day04.data.txt?raw";
@@ -53,7 +53,9 @@ export const Day04 = () => {
         to more than one Elf.
         `}
       />
-      <DayLayout.ASCIIArt>{renderXTimes(7, <Elf />)}</DayLayout.ASCIIArt>
+      <DayLayout.ASCIIArt>
+        <Beach />
+      </DayLayout.ASCIIArt>
       <DayLayout.Content>
         <DayLayout.Input>
           <TextField
