@@ -1,5 +1,5 @@
 import { createReactRouter, createRouteConfig } from "@tanstack/react-router";
-import { Day01, Day02, Day03 } from "~/pages";
+import { Day01, Day02, Day03, Day04 } from "~/pages";
 
 const rootRoute = createRouteConfig();
 
@@ -18,6 +18,16 @@ const day03Route = rootRoute.createRoute({
   component: Day03,
 });
 
-const routeConfig = rootRoute.addChildren([day01Route, day02Route, day03Route]);
+const day04Route = rootRoute.createRoute({
+  path: "/day-04",
+  component: Day04,
+});
+
+const routeConfig = rootRoute.addChildren([
+  day01Route,
+  day02Route,
+  day03Route,
+  day04Route,
+]);
 
 export const router = createReactRouter({ routeConfig });

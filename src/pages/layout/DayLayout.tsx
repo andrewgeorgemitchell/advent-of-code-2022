@@ -8,7 +8,7 @@ export const DaysRoutes: DayRoute[] = [
   "/",
   "/day-02",
   "/day-03",
-  // "/day-04",
+  "/day-04",
   // "/day-05",
   // "/day-06",
   // "/day-07",
