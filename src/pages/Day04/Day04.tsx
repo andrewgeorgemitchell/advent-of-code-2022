@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Beach, Button, Elf, TextField } from "~/components";
+import { Beach, Button, TextField } from "~/components";
 import { DayLayout } from "~/pages";
-import { renderXTimes, sanitizeFileInput } from "~/utils";
+import { sanitizeFileInput } from "~/utils";
 import rawInput from "./day04.data.txt?raw";
 import { calculateTotalGroupsWithDuplicateCleaningAreas } from "./day04.service";
 
