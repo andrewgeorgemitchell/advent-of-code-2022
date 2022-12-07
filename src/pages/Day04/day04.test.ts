@@ -1,5 +1,5 @@
 import { describe, expect, test } from "@jest/globals";
-import { sanitizeFileInput } from "../../utils";
+import { sanitizeFileInput } from "~/utils";
 import { calculateTotalGroupsWithDuplicateCleaningAreas } from "./day04.service";
 
 const RawTestInput = `2-4,6-8

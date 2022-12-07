@@ -3,8 +3,9 @@ import { useMemo } from "react";
 import { uuid } from "~/utils";
 
 export interface TextFieldProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
+  extends React.InputHTMLAttributes<HTMLTextAreaElement> {
   label?: string;
+  textarea?: boolean;
 }
 
 const TextFieldInputStyles = cva([
@@ -28,7 +29,7 @@ export const TextField = ({ label, ...props }: TextFieldProps) => {
           {label}
         </label>
       )}
-      <input
+      <textarea
         id={inputId}
         aria-labelledby={labelId}
         className={TextFieldInputStyles()}

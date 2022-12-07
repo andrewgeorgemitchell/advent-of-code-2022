@@ -15,7 +15,7 @@ export const Day03 = () => {
   const [packPrioritySum, setPackPrioritySum] = useState<number>();
   const [groupBadgeSum, setGroupBadgeSum] = useState<number>();
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const value = e.target.value;
 
     setInputValue(value);
@@ -64,7 +64,7 @@ export const Day03 = () => {
             <span className="text-lime-500">{groupBadgeSum}</span>
           </p>
         )}
-        <DayLayout.GithubLink href="" />
+        <DayLayout.GithubLink href="https://github.com/andrewgeorgemitchell/advent-of-code-2022/blob/main/src/pages/Day03/Day03.tsx" />
       </DayLayout.Content>
     </DayLayout.Root>
   );

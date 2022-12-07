@@ -9,7 +9,7 @@ export const DaysRoutes: DayRoute[] = [
   "/day-02",
   "/day-03",
   "/day-04",
-  // "/day-05",
+  "/day-05",
   // "/day-06",
   // "/day-07",
   // "/day-08",
@@ -118,7 +118,7 @@ export const DayLayoutContent = ({
 }) => <div className="flex flex-col items-center gap-4">{children}</div>;
 
 export const DayLayoutInput = ({ children }: { children: React.ReactNode }) => (
-  <div className="flex flex-wrap items-end justify-center gap-2">
+  <div className="flex flex-col items-center justify-center gap-2">
     {children}
   </div>
 );

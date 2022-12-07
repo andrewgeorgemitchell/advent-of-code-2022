@@ -1,5 +1,5 @@
 import { describe, expect, test } from "@jest/globals";
-import { sanitizeFileInput } from "../../utils";
+import { sanitizeFileInput } from "~/utils";
 import {
   calculateSumPackGroups,
   calculateSumPackPriority,

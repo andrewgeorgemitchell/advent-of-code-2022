@@ -23,7 +23,7 @@ export const Day01 = () => {
     setHighestThreeElvesByCalories(sortedElfFoodTotals.slice(-3));
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const value = e.target.value;
     setValue(value);
     calculateHighestFoodElves(value);

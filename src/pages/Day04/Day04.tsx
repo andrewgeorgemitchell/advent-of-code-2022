@@ -14,7 +14,7 @@ export const Day04 = () => {
   const [partialDuplicateCleaningAreas, setPartialDuplicateCleaningAreas] =
     useState<number>();
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const value = e.target.value;
 
     setInputValue(value);
@@ -79,7 +79,7 @@ export const Day04 = () => {
             </span>
           </p>
         )}
-        <DayLayout.GithubLink href="" />
+        <DayLayout.GithubLink href="https://github.com/andrewgeorgemitchell/advent-of-code-2022/blob/main/src/pages/Day04/Day04.tsx" />
       </DayLayout.Content>
     </DayLayout.Root>
   );
