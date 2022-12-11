@@ -1,12 +1,12 @@
 import { describe, expect, test } from "@jest/globals";
+import { parseTemplateLiteral } from "~/utils";
 import {
   moveCargo,
   moveCargoWithMaxCarrySize,
   parseInput,
-  parseTemplateLiteralIntoInput,
 } from "./day05.service";
 
-const Input = parseTemplateLiteralIntoInput`    [D]    
+const Input = parseTemplateLiteral`    [D]    
 [N] [C]    
 [Z] [M] [P]
  1   2   3 

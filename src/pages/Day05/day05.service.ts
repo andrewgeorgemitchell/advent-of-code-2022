@@ -1,12 +1,6 @@
 import { deepCopy } from "~/utils";
 import { CargoMoves } from "./day05.types";
 
-export const parseTemplateLiteralIntoInput = (
-  input: TemplateStringsArray
-): string[] => {
-  return input[0].split("\n");
-};
-
 export const parseInput = (lines: string[]): CargoMoves => {
   const split = lines.indexOf("");
 
